@@ -27,7 +27,7 @@ var getUniqueShortUrl = async function (number){
      return number;
   }
   if(data) {
-    return getData(number+1);
+    return getUniqueShortUrl(number+1);
   }
   
 }

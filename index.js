@@ -41,12 +41,13 @@ var app = express()
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
-app.get('/new', function(req,res){
+app.get('/', function(req,res){
   res.render('index', {
-    title: 'little Url',
-    message: 'Error: You need to add a proper url'
-  })
+    title: 'Little Url'
+  });
 })
+
+
 
 app.get('/new/:protocol//:url', function(req,res){
  var regex = new RegExp("^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?");
@@ -93,6 +94,16 @@ app.get('/new/:protocol//:url', function(req,res){
 
 })
 
+
+app.get('/new', function(req,res){
+  res.render('index', {
+    title: 'little Url',
+    message: 'Error: You need to add a proper url'
+  })
+})
+
+
+
 app.get('/:number', function(req,res){
   console.log(req.params.number);
   var number = req.params.number;
@@ -109,14 +120,6 @@ app.get('/:number', function(req,res){
     }
   })
 })
-
-
-app.get('/', function(req,res){
-  res.render('index', {
-    title: 'Little Url'
-  });
-})
-
 
 
 app.listen(process.env.PORT || 3000, () => console.log("Server is running"));

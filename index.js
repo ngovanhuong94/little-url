@@ -108,17 +108,17 @@ app.get('/:number', function(req,res){
   console.log(req.params.number);
   var number = req.params.number;
 
-  Url.findOne({short_url: Number(number)}, (err, url) => {
-    if(err) throw err;
-    if (url) {
-      res.redirect(url.original_url);
-    } 
-    if(!url) {
-      res.json({
-        error: 'Not Found Url'
-      })
-    }
-  })
+  // Url.findOne({short_url: Number(number)}, (err, url) => {
+  //   if(err) throw err;
+  //   if (url) {
+  //     res.redirect(url.original_url);
+  //   } 
+  //   if(!url) {
+  //     res.json({
+  //       error: 'Not Found Url'
+  //     })
+  //   }
+  // })
 })
 
 

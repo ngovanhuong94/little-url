@@ -59,7 +59,7 @@ app.get('/new/:protocol//:url', function(req,res){
   if(myUrl) {
     res.json({
       original_url: myUrl.original_url,
-      short_url: 'https://little-url-freecc.herokuapp.com/'+myUrl.short_url
+      short_url: myUrl.short_url
     })
   }
   if(!myUrl) {
@@ -91,7 +91,7 @@ app.get('/:number', function(req,res){
   console.log(req.params.number);
   var number = req.params.number;
 
-  Url.findOne({short_url: parseInt(number)}, (err, url) => {
+  Url.findOne({short_url: number}, (err, url) => {
     if(err) throw err;
     if (url) {
       res.redirect(url.original_url);

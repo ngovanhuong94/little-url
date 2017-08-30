@@ -75,7 +75,12 @@ app.get('/new/:protocol//:url', function(req,res){
         newUrl.save(function(err){
           if(err) throw err;
           console.log(newUrl);
+          res.json({
+           original_url: newUrl.original_url,
+           short_url: newUrl.short_url
+       })
         })  
+
   }
  })
  } else {
@@ -92,7 +97,7 @@ app.get('/:number', function(req,res){
   console.log(req.params.number);
   var number = req.params.number;
 
-  Url.findOne({short_url: 1000}, (err, url) => {
+  Url.findOne({short_url: Number(number)}, (err, url) => {
     if(err) throw err;
     if (url) {
       res.redirect(url.original_url);

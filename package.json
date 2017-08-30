@@ -14,10 +14,9 @@
     "es6-promise": "^4.1.1",
     "express": "^4.13.3",
     "jade": "^1.7.0",
-    "mongoose": "^4.11.9"
+    "mongoose": "^4.7.2"
   },
   "engines": {
     "node": ">= 8.4.0"
   }
-
 }

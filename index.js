@@ -5,7 +5,7 @@ require('dotenv').config({
 var express = require('express');
 var mongoose = require('mongoose');
 var Promise = require('es6-promise').Promise;
-
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://huong:123456@ds161913.mlab.com:61913/littleurl');
 
 var urlSchema = new mongoose.Schema({

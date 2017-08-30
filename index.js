@@ -17,7 +17,7 @@ var urlSchema = new mongoose.Schema({
 })
 
 
-async function getUniqueShortUrl(number){
+var getUniqueShortUrl = async function (number){
   var data = await Url.findOne({short_url: number}, (err, data) => {
   	if(err) throw err;
   }).exec();

@@ -106,9 +106,9 @@ app.get('/new', function(req,res){
 
 app.get('/:number', function(req,res){
   console.log(req.params.number);
-  var number = req.params.number;
+  var number = Number(req.params.number) ||parseInt(req.params.number) || 1000;
 
-  Url.findOne({short_url: Number(req.params.number)}, (err, url) => {
+  Url.findOne({short_url: number}, (err, url) => {
     if(err) throw err;
     if (url) {
       res.redirect(url.original_url);
